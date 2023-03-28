@@ -122,6 +122,10 @@ body {
           flex-direction: column;
 }
 
+.page {
+  position: relative;
+}
+
 ._container {
   max-width: 1170px;
   margin: 0 auto;
@@ -171,6 +175,98 @@ body {
 
 .display-none.show * {
   display: block;
+}
+
+.footer {
+  margin-top: 171px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.footer__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+}
+
+.footer__left {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 80%;
+          flex: 0 1 80%;
+}
+
+.footer__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 20%;
+          flex: 0 1 20%;
+}
+
+.footer-left__button {
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px 22px;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  margin-bottom: 12px;
+  background-color: #1d51fe;
+  color: white;
+  margin-right: 40px;
+}
+
+.footer-left__title {
+  font-family: "Orbitron";
+  font-weight: 900;
+  font-size: 43px;
+  line-height: 150%;
+}
+
+.footer-right__icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.footer-right__icons picture {
+  width: 45px;
+  height: 45px;
+}
+
+.footer-right__icons img {
+  margin-right: 20px;
+  width: 45px;
+  height: 45px;
+}
+
+.footer-right__title {
+  font-family: "Orbitron";
+  font-weight: 900;
+  font-size: 23px;
+  margin-bottom: 20px;
 }
 
 main {
@@ -803,6 +899,9 @@ main {
   height: 13vmax;
   aspect-ratio: 1;
   position: absolute;
+  -webkit-transform: translate(0%, -50%);
+      -ms-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
   left: 50%;
   -webkit-filter: blur(90px);
           filter: blur(90px);
@@ -1242,6 +1341,10 @@ main {
           align-items: center;
 }
 
+.card-item__image picture {
+  width: 100%;
+}
+
 .card-item__image img {
   width: 100%;
 }
@@ -1419,7 +1522,32 @@ main {
   text-align: center;
 }
 
+@-webkit-keyframes scale {
+  from, to {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes scale {
+  from, to {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 .mainScreen-image {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1431,18 +1559,48 @@ main {
           align-items: center;
 }
 
+.mainScreen-image .mainScreen-image__star {
+  -webkit-animation: scale 2700ms ease forwards;
+          animation: scale 2700ms ease forwards;
+  --size: clamp(30px, 1.5vw, 30px);
+  position: absolute;
+  width: var(--size);
+  width: var(--size);
+  z-index: 10;
+  top: var(--star-top);
+  left: var(--star-left);
+}
+
+.mainScreen-image .mainScreen-image__star picture {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.mainScreen-image .mainScreen-image__star img {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: var(--size);
+  width: var(--size);
+}
+
+.mainScreen-image .mainScreen-image__star img:nth-child(1) {
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+}
+
 .mainScreen-image__content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   min-width: 370px;
   height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -1453,6 +1611,23 @@ main {
   border-radius: 0 0 300px 300px;
   position: relative;
   background-color: #1d51fe;
+}
+
+.mainScreen-image__content .mainScreen-image__contentWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transform: translate(0, -58%);
+      -ms-transform: translate(0, -58%);
+          transform: translate(0, -58%);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
 }
 
 .mainScreen-image__content::before {
@@ -1522,6 +1697,32 @@ main {
 .mainScreen-image__image img:nth-child(1) {
   -webkit-filter: blur(15px);
           filter: blur(15px);
+}
+
+.mainScreen-image__title {
+  font-family: "Orbitron";
+  font-weight: 900;
+  font-size: 23px;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+.mainScreen-image__title::before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 1px;
+  background: white;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  bottom: 20px;
+}
+
+.mainScreen-image__text {
+  max-width: 80%;
+  line-height: 140%;
 }
 
 @-webkit-keyframes rotate1 {
@@ -1626,6 +1827,14 @@ main {
 }
 
 @media (max-width: 1170px) {
+  .footer-left__title {
+    font-size: calc(21px + 22 * ((100vw - 320px) / 850));
+  }
+
+  .footer-right__title {
+    font-size: calc(21px + 2 * ((100vw - 320px) / 850));
+  }
+
   .header__logo {
     font-size: calc(16px + 5 * ((100vw - 320px) / 850));
   }
@@ -1692,6 +1901,10 @@ main {
 
   .mainScreen__title {
     font-size: calc(9px + 37 * ((100vw - 320px) / 850));
+  }
+
+  .mainScreen-image__title {
+    font-size: calc(21px + 2 * ((100vw - 320px) / 850));
   }
 }
 
@@ -1805,6 +2018,10 @@ main {
 }
 
 @media (any-hover: hover) {
+  .footer-left__button:hover {
+    background-color: #143ab6;
+  }
+
   .menu__link:hover {
     color: #1d51fe;
   }
